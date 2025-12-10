@@ -22,3 +22,15 @@ def registrar_usuario(nombre, email, telefono):
     print(f"Usuario '{nombre}' registrado con ID: {id_usuario_contador}")
     id_usuario_contador += 1
     return True
+
+def listar_usuarios():
+    """Lista todos los usuarios registrados"""
+    if not usuarios:
+        print("No hay usuarios registrados")
+        return
+    
+    print("\n=== USUARIOS REGISTRADOS ===")
+    
+    for id_user, datos in usuarios.items():
+        estado = "Activo" if datos['activo'] else "Inactivo"
+        print(f"ID: {id_user} | {datos['nombre']} - {datos['email']} [{estado}]")
