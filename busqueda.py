@@ -44,3 +44,16 @@ def libros_disponibles():
      
     return disponibles
 
+
+def generar_reporte_general(): 
+    """Genera un reporte estadístico de la biblioteca""" 
+    total_libros = len(libros) 
+    libros_disponibles_count = len([l for l in libros.values() if l['disponible']]) 
+    libros_prestados = total_libros - libros_disponibles_count 
+    prestamos_activos = len([p for p in prestamos if not p['devuelto']]) 
+     
+    print("\n=== REPORTE GENERAL ===") 
+    print(f"Total de libros: {total_libros}") 
+    print(f"Libros disponibles: {libros_disponibles_count}") 
+    print(f"Libros prestados: {libros_prestados}") 
+    print(f"Préstamos activos: {prestamos_activos}")
