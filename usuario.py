@@ -20,3 +20,6 @@ def registrar_usuario(nombre, email, telefono):
         'prestamos_historicos': 0,
         'activo': True
     }
+    print(f"Usuario '{nombre}' registrado con ID: {id_usuario_contador}")
+    id_usuario_contador += 1
+    return True
