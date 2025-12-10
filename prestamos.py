@@ -34,3 +34,14 @@ print(f"Préstamo #{id_prestamo} registrado. Devolución: {fecha_devolucion.strf
 id_prestamo += 1
 return True
   
+def devolver_libro(id_prestamo): 
+    """Registra la devolución de un libro""" 
+    for prestamo in prestamos: 
+        if prestamo['id'] == id_prestamo and not prestamo['devuelto']: 
+            prestamo['devuelto'] = True 
+            prestamo['fecha_devolucion_real'] = datetime.now() 
+            print(f"Libro devuelto correctamente") 
+            return True 
+     
+    print("Error: Préstamo no encontrado o ya devuelto") 
+    return False 
