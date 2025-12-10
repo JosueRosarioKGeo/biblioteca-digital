@@ -59,3 +59,17 @@ def listar_prestamos_activos():
     for p in activos: 
         print(f"Préstamo #{p['id']} - Usuario: {p['id_usuario']} - Libro: {p['id_libro']}") 
         print(f"  Devolución: {p['fecha_devolucion'].strftime('%d/%m/%Y')}") 
+
+
+ 
+def verificar_prestamos_vencidos(): 
+    """Verifica y lista los préstamos vencidos""" 
+    vencidos = [p for p in prestamos if not p['devuelto'] and p['fecha_devolucion'] < 
+datetime.now()] 
+     
+    if vencidos: 
+        print("\n=== PRÉSTAMOS VENCIDOS ===") 
+        for p in vencidos: 
+            dias_retraso = (datetime.now() - p['fecha_devolucion']).days 
+            print(f"Préstamo #{p['id']} - {dias_retraso} días de retraso") 
+
