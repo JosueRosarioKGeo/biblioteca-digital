@@ -19,3 +19,16 @@ def buscar_por_titulo(termino):
     for libro in resultados: 
         print(f"{libro['titulo']} - {libro['autor']}") 
     return resultados
+
+
+def buscar_por_autor(autor): 
+    """Busca libros por autor""" 
+    resultados = [libro for libro in libros.values()  
+                  if autor.lower() in libro['autor'].lower()] 
+    return resultados 
+ 
+def buscar_por_categoria(categoria): 
+    """Busca libros por categoría""" 
+    resultados = [libro for libro in libros.values()  
+                  if libro['categoria'].lower() == categoria.lower()] 
+    return resultados 
