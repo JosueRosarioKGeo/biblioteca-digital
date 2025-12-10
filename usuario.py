@@ -1,4 +1,3 @@
-# Sistema de Gestión de Usuarios
 usuarios = {}
 id_usuario_contador = 1
 def registrar_usuario(nombre, email, telefono):
