@@ -45,3 +45,17 @@ def devolver_libro(id_prestamo):
      
     print("Error: Préstamo no encontrado o ya devuelto") 
     return False 
+
+ 
+def listar_prestamos_activos(): 
+    """Lista todos los préstamos activos""" 
+    activos = [p for p in prestamos if not p['devuelto']] 
+     
+    if not activos: 
+        print("No hay préstamos activos") 
+        return 
+     
+    print("\n=== PRÉSTAMOS ACTIVOS ===") 
+    for p in activos: 
+        print(f"Préstamo #{p['id']} - Usuario: {p['id_usuario']} - Libro: {p['id_libro']}") 
+        print(f"  Devolución: {p['fecha_devolucion'].strftime('%d/%m/%Y')}") 
