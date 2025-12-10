@@ -32,3 +32,15 @@ def buscar_por_categoria(categoria):
     resultados = [libro for libro in libros.values()  
                   if libro['categoria'].lower() == categoria.lower()] 
     return resultados 
+
+
+def libros_disponibles(): 
+    """Lista solo los libros disponibles""" 
+    disponibles = [libro for libro in libros.values() if libro['disponible']] 
+     
+    print(f"\n=== LIBROS DISPONIBLES ({len(disponibles)}) ===") 
+    for libro in disponibles: 
+        print(f"{libro['titulo']} - {libro['autor']}") 
+     
+    return disponibles
+
