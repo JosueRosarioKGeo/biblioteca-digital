@@ -34,3 +34,20 @@ def listar_usuarios():
     for id_user, datos in usuarios.items():
         estado = "Activo" if datos['activo'] else "Inactivo"
         print(f"ID: {id_user} | {datos['nombre']} - {datos['email']} [{estado}]")
+
+def obtener_usuario(id_usuario):
+    """Obtiene información de un usuario por ID"""
+    return usuarios.get(id_usuario)
+
+def actualizar_usuario(id_usuario, **kwargs):
+    """Actualiza los datos de un usuario"""
+    if id_usuario not in usuarios:
+        print("Error: Usuario no encontrado")
+        return False
+    
+    for key, value in kwargs.items():
+        if key in usuarios[id_usuario]:
+            usuarios[id_usuario][key] = value
+    
+    print("Usuario actualizado correctamente")
+    return True
