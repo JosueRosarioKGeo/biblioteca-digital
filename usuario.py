@@ -51,3 +51,11 @@ def actualizar_usuario(id_usuario, **kwargs):
     
     print("Usuario actualizado correctamente")
     return True
+
+def desactivar_usuario(id_usuario):
+    """Desactiva un usuario del sistema"""
+    if id_usuario in usuarios:
+        usuarios[id_usuario]['activo'] = False
+        print(f"Usuario {id_usuario} desactivado")
+        return True
+    return False
